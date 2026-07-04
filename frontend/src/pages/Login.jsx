@@ -13,7 +13,7 @@ export default function Login({ onLogin }) {
     setError(null);
     
     try {
-      const response = await axios.post('http://localhost:5000/api/users/login', {
+      const response = await axios.post('https://expensetracker-backend-yfkd.onrender.com/api/users/login', {
         email,
         password
       });

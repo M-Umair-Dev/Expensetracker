@@ -13,7 +13,7 @@ const handleSignup = async (e) => {
     setError(null);
     
     try {
-      const response = await axios.post('http://localhost:5000/api/users/register', {
+      const response = await axios.post('https://expensetracker-backend-yfkd.onrender.com/api/users/register', {
         name,
         email,
         password

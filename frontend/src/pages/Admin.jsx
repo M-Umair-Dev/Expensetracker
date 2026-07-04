@@ -11,7 +11,7 @@ export default function Admin() {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/users/admin/users', {
+      const response = await axios.get('https://expensetracker-backend-yfkd.onrender.com/api/users/admin/users', {
         headers: { Authorization: `Bearer ${user?.token}` }
       });
       console.log("Users received:", response.data); // This will log to your console
@@ -23,7 +23,7 @@ export default function Admin() {
   };
   const deleteUser = async (id) => {
     if (window.confirm('Are you sure?')) {
-      await axios.delete(`http://localhost:5000/api/users/admin/users/${id}`, {
+      await axios.delete(`https://expensetracker-backend-yfkd.onrender.com/api/users/admin/users/${id}`, {
         headers: { Authorization: `Bearer ${user?.token}` }
       });
       fetchUsers();
