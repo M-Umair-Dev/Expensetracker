@@ -28,7 +28,7 @@ export default function Dashboard() {
 
   const fetchExpenses = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/expenses', config);
+      const response = await axios.get('https://expensetracker-backend-yfkd.onrender.com/api/expenses', config);
       setExpenses(response.data);
     } catch (error) {
       console.error('Error fetching expenses:', error);
@@ -43,12 +43,12 @@ export default function Dashboard() {
       
       if (editId) {
         // UPDATE EXISTING EXPENSE
-        const response = await axios.put(`http://localhost:5000/api/expenses/${editId}`, expenseData, config);
+        const response = await axios.put(`https://expensetracker-backend-yfkd.onrender.com/api/expenses/${editId}`, expenseData, config);
         // Replace the old expense in our list with the newly updated one
         setExpenses(expenses.map(exp => exp._id === editId ? response.data : exp));
       } else {
         // ADD NEW EXPENSE
-        const response = await axios.post('http://localhost:5000/api/expenses', expenseData, config);
+        const response = await axios.post('https://expensetracker-backend-yfkd.onrender.com/api/expenses', expenseData, config);
         setExpenses([response.data, ...expenses]);
       }
       
@@ -77,7 +77,7 @@ export default function Dashboard() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/expenses/${id}`, config);
+      await axios.delete(`https://expensetracker-backend-yfkd.onrender.com/api/expenses/${id}`, config);
       setExpenses(expenses.filter((expense) => expense._id !== id));
       
       // If they delete the item they are currently editing, clear the form!
