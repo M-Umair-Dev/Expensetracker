@@ -15,7 +15,11 @@ const PORT = process.env.PORT || 5000;
 
 // 2. Middleware
 // This allows our React app to talk to this server and lets our server understand JSON data.
-app.use(cors());
+app.use(cors({
+  origin: ["https://expensetracker-tau-two.vercel.app/"], // Replace with your actual URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json());
 app.use('/api/expenses', expenseRoutes);
 app.use('/api/users', userRoutes);
