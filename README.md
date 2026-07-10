@@ -44,3 +44,5 @@ npm run dev
 👤 Author
 M. Umair
 
+Dashboard
+![Expensetracker Dashboard](Dashboard.png)
